@@ -9,10 +9,12 @@ import {
   HttpException,
   HttpStatus,
   UseGuards,
+  UseInterceptors,
 } from '@nestjs/common';
 
 import { SensorsService } from './sensors.service';
 import { JwtAuthGuard } from 'src/auth/jwt-auth.guard';
+import { FilterAssetsInterceptor } from 'src/interceptors/filter-assets.interceptor';
 
 @Controller('Sensors')
 export class SensorsController {
@@ -37,6 +39,7 @@ export class SensorsController {
     return sensors;
   }
 
+  @UseInterceptors(FilterAssetsInterceptor)
   @Get(':id')
   getSensor(@Param('id') sensorId: string) {
     return this.sensorsService.getSingleSensor(sensorId);
