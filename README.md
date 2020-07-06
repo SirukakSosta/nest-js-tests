@@ -39,3 +39,11 @@ $ npm run test:e2e
 # test coverage
 $ npm run test:cov
 ```
+
+# Mongo Migrations
+
+```bash
+$ npm install -g migrate-mongo
+```
+
+see : https://www.npmjs.com/package/migrate-mongo
